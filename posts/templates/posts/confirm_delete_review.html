@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirm delete review{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h3 class="mb-4 text-danger">Haqiqatan ham bu sharhni oʻchirib tashlamoqchimisiz?</h3>
+
+    <p>
+        <b>Article title</b>: {{ book.title }}
+    </p>
+    <p>
+        <b>Comment</b>: {{ review.comment }}
+    </p>
+
+    <a href="{% url 'books:delete-review' book.id review.id %}" class="btn btn-outline-danger mb-4">Ha</a> <a href="{% url 'books:detail' book.id %}" class="btn btn-outline-primary mb-4">Yo'q</a>
+</div>
+{% endblock %}

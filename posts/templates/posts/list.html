@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}BLOG{% endblock %}
+
+{% block content %}
+
+    <div class="row news-section-list-serch">
+        <div>
+            <form class="d-flex" method="get">
+                <input class="form-control me-2" type="text" placeholder="Search" name="q" value="{{ search_query }}">
+                <button class="btn btn-success">Search</button>
+            </form>
+        </div>
+    </div>
+
+    {% if page_obj %}
+        <div class="container news-section-list">
+            <div class="row">
+                {% for book in page_obj.object_list %}
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a href="{% url 'books:detail' book.id %}" style="text-decoration: none; color: inherit;">
+                                    <div class="text-center">
+                                        <img class="responsive" src="{{ book.cover_picture.url }}" alt="img" style="max-width: 100%; height: auto;"><br><br>
+                                    </div>
+                                    <h5>{{ book.title }}</h5>
+                                    <p class="fs-8">{{ book.description | truncatewords:10 }}</p>
+                                </a>
+                                <div class="mb-3">
+                                    <span class="fw-lighter"><i class="bi bi-calendar3"></i> {{ book.created_at|date:"F j, Y " }}</span>
+                                    <span class="fw-medium ms-3"><i class="bi bi-newspaper"></i> Maqolalar</span>
+                                </div>
+                                <div>
+                                    <a href="{% url 'books:detail' book.id %}">
+                                        <button type="button" class="btn-bat">Batafsil</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if forloop.counter|divisibleby:3 %}
+                        </div><div class="row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <nav class="mb-4">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                {% endif %}
+
+                <li class="page-item active"><a href="#" class="page-link">{{ page_obj.number }}</a></li>
+
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% else %}
+        No posts found.
+    {% endif %}
+{% endblock %}

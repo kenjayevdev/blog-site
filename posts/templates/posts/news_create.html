@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} Maqola Qo'shish {% endblock title %}
+
+{% block content %}
+<h6 class="text-danger text-center mb-4">Bu sahifa orqali o'z maqolangizni joylashtirishingiz mumkin. Maqolangiz texnalogiya va dasturlashga oid bo'lishi shart. <b>Maqolani Qo'shish</b> tugmasini bosganingizdan keyin maqolangiz admin tarafidan tekshirilib tastiqlangach saytmizning <b>BLOG</b> qizmidan ko'rishingiz mumkin.</b></h6>
+     <div class="row mb-2 ms-4">
+        <div class="col-8">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn colore-btni">Maqolani Qo'shish</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

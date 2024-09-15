@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% block content %}
+{% if page_obj %}
+        <div class="news-section container">
+            <div class="row">
+                {% for book in page_obj.object_list %}
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a href="{% url 'books:detail' book.id %}" style="text-decoration: none; color: inherit;">
+                                    <div class="text-center">
+                                        <img class="responsive" src="{{ book.cover_picture.url }}" alt="img" style="max-width: 100%; height: auto;"><br><br>
+                                    </div>
+                                    <h5>{{ book.title }}</h5>
+                                    <p class="fs-8">{{ book.description | truncatewords:10 }}</p>
+                                </a>
+                                <div class="mb-3">
+                                    <span class="fw-lighter"><i class="bi bi-calendar3"></i> {{ book.created_at|date:"F j, Y " }}</span>
+                                    <span class="fw-medium ms-3"><i class="bi bi-newspaper"></i> Maqolalar</span>
+                                </div>
+                                <div>
+                                    <a href="{% url 'books:detail' book.id %}">
+                                        <button type="button" class="btn-bat">Batafsil</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if forloop.counter|divisibleby:3 %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        No posts found.
+    {% endif %}
+{% endblock %}

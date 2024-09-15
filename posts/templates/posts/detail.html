@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load hitcount_tags %}
+
+{% block title %}POST{% endblock %}
+
+{% block content %}
+    <div class="row mb-4">
+        <section>
+            <!-- Title of the book in a larger, bold font with good spacing -->
+            <h1 class="text-center mb-4 fw-bold">{{ book.title }}</h1>
+
+            <div class="text-center mb-2">
+                <span class="fw-lighter">
+                    <i class="bi bi-clock-history"></i> {{ book.created_at|date:"d.m.Y H:i" }}
+                </span>
+                <span class="fw-lighter ms-3">
+                    <i class="bi bi-chat-fill"></i> {{ book.bookreview_set.count }}
+                </span>
+                <span class="fw-lighter ms-3">
+                    <i class="fas fa-eye"></i> {% get_hit_count for book %}
+                </span>
+            </div>
+
+            <!-- Cover image of the book -->
+            <div class="text-center mb-3">
+                <img class="img-fluid mb-2" src="{{ book.cover_picture.url }}" alt="Book Cover">
+            </div>
+
+            <!-- Description of the book with better line spacing and readable font -->
+            <div class="book-description mt-4">
+                <p class="lead">{{ book.description | linebreaks }}</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Review form section -->
+    <div class="row mb-4">
+        <div class="col-8">
+            <form method="post" action="{% url 'books:reviews' book.id %}">
+                {% csrf_token %}
+                {{ review_form | crispy }}
+                <button class="btn btn-success">Add review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Display reviews -->
+    {% if book.bookreview_set.exists %}
+        <h4 class="mt-4">Reviews</h4>
+        <hr>
+
+        {% for review in book.bookreview_set.all %}
+            <div class="row mb-3">
+                <div class="col-3">
+                    <img class="small-profile-pic rounded-circle" src="{{ review.user.profile_picture.url }}" alt="Profile Picture">
+                </div>
+                <div class="col-9 ms-2">
+                    <b>{{ review.user.username }}</b> rated it {{ review.stars_given }} stars
+                    <span class="fw-lighter">{{ review.create_at }}</span>
+                    {% if review.user == request.user %}
+                        <a href="{% url 'books:edit-review' book.id review.id %}"><i class="bi bi-pen"></i></a>
+                        <a href="{% url 'books:confirm-delete-review' book.id review.id %}"><i class="bi bi-trash"></i></a>
+                    {% endif %}
+                    <p class="mt-2 font-monospace">{{ review.comment | linebreaks }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

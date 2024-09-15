@@ -1,0 +1,41 @@
+.responsive {
+    align-self: flex-start;
+    max-width: 100%;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.colore-btni {
+    background-color: rgb(25,149,220);
+    color: white;
+    padding: 10px;
+    text-align: justify;
+}
+
+.more-btn {
+    background-color: rgb(25,149,220);
+    color: white;
+    padding: 8px;
+    text-align: justify;
+}
+
+
+summary {
+  display: block;
+  cursor: pointer;
+  padding: 20px;
+  font-family: "Space Mono", monospace;
+  font-size: 28px;
+  transition: 0.3s;
+  border-bottom: 2px solid;
+  user-select: none;
+}
+
+summary {
+  color: #0C2F75;
+}
+
+

@@ -1,0 +1,63 @@
+.news-section {
+    margin-top: 12px;
+    padding-top: 0px;
+}
+
+.news-section {
+    position: relative;
+    top: 0px;
+}
+
+.news-section-list {
+    margin-top: 22px;
+    padding-top: 0px;
+}
+
+.news-section-list {
+    position: relative;
+    top: 0px;
+}
+
+.news-section-list-serch {
+    margin-top: 12px;
+    padding-top: 0px;
+}
+
+.news-section-list-serch {
+    position: relative;
+    top: 0px;
+}
+
+.news-section-list-resume {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.news-section-list-resume {
+    position: relative;
+    top: 8px;
+}
+
+.custom-bg {
+    background-color: rgb(25, 149, 220);
+    color: white;
+    padding: 20px;
+    text-align: justify;
+}
+
+/* Ensure the navbar stays on top */
+.navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0;
+    width: 100%; /* Makes sure the navbar spans the width of the page */
+    z-index: 1000; /* Adjust z-index to be on top of other elements */
+}
+
+/* Add padding to the body or container so content doesn’t get hidden under the navbar */
+body {
+    padding-top: 70px; /* Adjust the value based on the height of your navbar */
+}
+
+.msf {
+    left: 20px;
+}
