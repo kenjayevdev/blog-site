@@ -119,15 +119,15 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 MEDIA_URL = 'media/'
 # MEDIA_ROOT = BASE_DIR / 'media-files'
-MEDIA_ROOT = '/home/techscri/techscript.uz/django/media-files'
+MEDIA_ROOT = '/home/techscri/techscript.uz/media-files'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = '/home/techscri/techscript.uz/django/staticfiles'
-STATICFILES_DIRS = ('/home/techscri/techscript.uz/django/static')
+STATIC_ROOT = '/home/techscri/techscript.uz/staticfiles'
+STATICFILES_DIRS = ('/home/techscri/techscript.uz/static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
