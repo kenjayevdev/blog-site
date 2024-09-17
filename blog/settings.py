@@ -20,7 +20,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["techscript.uz", 'www.techscript.uz']
 
 LOGIN_URL = "users:login"
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'portfolio',
     'crispy_forms',
     'crispy_bootstrap5',
-    'hitcount'
+    'hitcount',
+    'whitenoise.runserver_nostatic',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -47,6 +48,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,7 +90,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -119,14 +120,18 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 MEDIA_URL = 'media/'
 # MEDIA_ROOT = BASE_DIR / 'media-files'
-MEDIA_ROOT = '/home/techscri/techscript.uz/python/media-files'
+MEDIA_ROOT = '/home/techscri/techscript.uz/blog/media-files'
 
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/techscri/techscript.uz/blog/staticfiles'
+STATICFILES_DIRS = ('/home/techscri/techscript.uz/blog/static',)
 
-STATIC_URL = 'static/'
-STATIC_ROOT = '/home/techscri/techscript.uz/python/staticfiles'
-STATICFILES_DIRS = ('/home/techscri/techscript.uz/python/static')
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home_page'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
