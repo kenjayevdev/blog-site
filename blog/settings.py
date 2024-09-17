@@ -107,10 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
-
 LANGUAGE_CODE = 'uz-uz'
 
 TIME_ZONE = 'Asia/Tashkent'
@@ -123,15 +119,12 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 MEDIA_URL = 'media/'
 # MEDIA_ROOT = BASE_DIR / 'media-files'
-MEDIA_ROOT = '/home/techscri/techscript.uz/app/media-files'
+MEDIA_ROOT = '/home/techscri/techscript.uz/python/media-files'
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = '/home/techscri/techscript.uz/app/staticfiles'
-STATICFILES_DIRS = ('/home/techscri/techscript.uz/app/static')
+STATIC_ROOT = '/home/techscri/techscript.uz/python/staticfiles'
+STATICFILES_DIRS = ('/home/techscri/techscript.uz/python/static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
