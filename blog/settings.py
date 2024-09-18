@@ -120,9 +120,12 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[str(BASE_DIR) + "/assets",]
-STATIC_ROOT = '/home/techscri/techscript.uz/staticfiles'
-MEDIA_ROOT = '/home/techscri/techscript.uz/media-files'
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+STATIC_ROOT = '/home/techscri/techscript.uz/django/staticfiles'
+MEDIA_ROOT = '/home/techscri/techscript.uz/django/media-files'
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
