@@ -118,8 +118,8 @@ USE_TZ = True
 
 AUTH_USER_MODEL = "users.CustomUser"
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = "/home/techscri/techscript.uz/django/media-files"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/techscri/techscript.uz/django/media-files'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/techscri/techscript.uz/django/staticfiles'
