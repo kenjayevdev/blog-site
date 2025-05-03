@@ -1,6 +1,26 @@
-# Django DRF Template
+# Blog Site
 
-Template Repository to Create Django &amp; DRF Project With Swagger
+🛠The following technologies were used in this project: HTML5, CSS3, Bootstrap, JavaScript, Python, Django, Django REST framework, Sqlite3
+
+🔹What's on the site:
+- Responsive web-site
+- Add article
+- Edit article
+- Delete article
+- Add portfolio
+- User registration (SignUp)
+- User login to the site with an opened account (LogIn)
+- User logout (LogOut)
+- Edit user account (Edit profile)
+- User adds article (Add Post)
+- User can add a photo to the profile (add photo)
+- Write a comment (comment)
+- Edit comment (edit)
+- Delete comment (delete)
+- View the number of comments (comment count)
+- Search for article (search)
+- Show the number of people who viewed the article (wiew count)
+- View the time the article was added (add date)
 
 ## Setup
 
