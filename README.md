@@ -31,6 +31,3 @@
 - run `python manage.py makemigrations`
 - run `python manage.py migrate`
 - run `python manage.py runserver`
-
-### RELATED
-[![kenjayevdev/blog-site - GitHub](https://gh-card.dev/repos/kenjayevdev/blog-site.svg)](https://github.com/kenjayevdev/blog-site)
