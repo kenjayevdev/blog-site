@@ -1,4 +1,4 @@
-# Blog Site
+# 🌐 Blog Site
 
 🛠The following technologies were used in this project: HTML5, CSS3, Bootstrap, JavaScript, Python, Django, Django REST framework, Sqlite3
 
@@ -24,6 +24,8 @@
 
 ## Setup
 
+- run `git clone https://github.com/kenjayevdev/blog-site.git` copy repositories
+- run `cd blog-site` accessing repositories
 - run `python -m venv env` to create virtual environment
 - run `env\Scripts\activate` to activate the env
 - run `pip install -r requirements.txt` to install all required packages
