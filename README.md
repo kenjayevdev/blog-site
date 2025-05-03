@@ -25,7 +25,7 @@
 ## Setup
 
 - run `python -m venv env` to create virtual environment
-- run `env\Scripts\activate` to activate the venv
+- run `env\Scripts\activate` to activate the env
 - run `pip install -r requirements.txt` to install all required packages
 - Create a .env file and set your SECRET_KEY and DEBUG=True in the file
 - run `python manage.py makemigrations`
